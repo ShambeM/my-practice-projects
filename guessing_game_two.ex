@@ -21,7 +21,7 @@ answer = IO.gets("") |> to_string() |> String.trim()
       "yes" ->
         "I knew I could guess your number!"
       _ ->
-        IO.puts ~s{Typer "bigger", "smaller" or "yes"}
+        IO.puts ~s{Type "bigger", "smaller" or "yes"}
         guess(min, max)
     end
   end

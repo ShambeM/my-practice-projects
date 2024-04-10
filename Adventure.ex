@@ -134,6 +134,7 @@ defmodule Adventure do
             try_again()
           _ ->
             IO.puts "Invalid input. Please enter 'water' or 'voices'."
+            choose_sound()
         end
     end
 end

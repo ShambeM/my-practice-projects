@@ -132,6 +132,8 @@ defmodule Adventure do
           "voices" ->
             IO.puts "You follow the sounds of voices until you stumble upon a village. Everyone talking stops and turns to you; They seem alarmed. You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming. As you turn to look at them, you are hit with a rock. Game over."
             try_again()
+          _ ->
+            IO.puts "Invalid input. Please enter 'water' or 'voices'."
         end
     end
 end

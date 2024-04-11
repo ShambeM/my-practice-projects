@@ -4,14 +4,14 @@ defmodule Adventure do
 #injury will lead to game over
 #Updates will be spiratic 
 
- def introduction() do
+   def play_game() do
   IO.puts "Welcome to your adventure! please enter your player's name"
   name = IO.gets("") |> to_string() |> String.trim()
   IO.puts " Thats a great name, #{name}!"
+  introduction()
   end
 
-  def play_game() do
-    introduction()
+  def introduction() do
     IO.puts "Please choose a place to start: The Forest, The City, or The Island"
     place = IO.gets("") |> to_string() |> String.trim() |> String.downcase()
 
@@ -26,13 +26,13 @@ defmodule Adventure do
           IO.puts "You use your boat to cross the seas to The Island. When you step out onto the sand, you take in a quiet view of trees, and a mountain. Suddenly, a coconut falls from a tree you are standing next to and knocks you out. Game over."
           try_again()
        _ ->
-          IO.puts "Invalid choice. Please choose The Forest, The City, or The Island."
-          play_game()
+          IO.puts "Invalid choice."
+          introduction()
         end
-  end
+end
 
   def try_again() do
-    IO.puts "Would you like to try again? (yes/no)"
+    IO.puts "Would you like to try again?"
     answer = IO.gets("") |> to_string() |> String.trim() |> String.downcase()
 
     case answer do

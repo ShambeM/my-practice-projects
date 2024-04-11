@@ -2,10 +2,17 @@ defmodule Adventure do
 
 #choose your own adventure
 #injury will lead to game over
-#Updates will be spiratic but grand
+#Updates will be spiratic 
+
+ def introduction() do
+  IO.puts "Welcome to your adventure! please enter your player's name"
+  name = IO.gets("") |> to_string() |> String.trim()
+  IO.puts " Thats a great name, #{name}!"
+  end
 
   def play_game() do
-    IO.puts "Welcome to your adventure! please choose a place to start: The Forest, The City, or The Island"
+    introduction()
+    IO.puts "Please choose a place to start: The Forest, The City, or The Island"
     place = IO.gets("") |> to_string() |> String.trim() |> String.downcase()
 
     case place do
@@ -113,9 +120,10 @@ defmodule Adventure do
       case path do
         "left" ->
           IO.puts " you get on the highway and notice how beautiful and unique the buildings are. It is an amazing sight that seems to be enjoyed by everyone driving along side you. After a while, you start to notice billboards that read 'Welcome to Paradise City'. You are among winners, and can now relax. Good Job!"
-         "right" ->
+          thank_you()
+          "right" ->
           IO.puts "...ummm, you're supposed to be heading deeper into the City, not away from it... Game over!"
-          try_again()
+          thank_you()
         _ ->
           IO.puts "Invalid input. Please enter 'left' or 'right'."
           choose_path()
@@ -129,12 +137,14 @@ defmodule Adventure do
         case sound do
           "water" ->
             IO.puts " you follow the sounds of water until you reach a water fall spilling into a lake. It's lit by thousands of fireflies that seem to dance around. You have found the Paradise lake of the Forest. You are among winners, and can relax now. Good job!"
-          "voices" ->
+            thank_you()
+            "voices" ->
             IO.puts "You follow the sounds of voices until you stumble upon a village. Everyone talking stops and turns to you; They seem alarmed. You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming. As you turn to look at them, you are hit with a rock. Game over."
-            try_again()
-          _ ->
-            IO.puts "Invalid input. Please enter 'water' or 'voices'."
-            choose_sound()
+            thank_you()
         end
+    end
+
+    def thank_you() do
+      IO.puts "Thank you for playing this small adventure game! <3"
     end
 end

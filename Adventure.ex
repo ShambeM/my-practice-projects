@@ -1,11 +1,13 @@
 defmodule Adventure do
 
+  @title "The Adventure"
+  @author "Maajidah Hall-Shambe"
 #choose your own adventure
 #injury will lead to game over
-#Updates will be spiratic 
+#Updates will be spiratic but grand
 
-   def play_game() do
-  IO.puts "Welcome to your adventure! please enter your player's name"
+  def play_game() do
+  IO.puts "Welcome to #{@title}! please enter your player's name"
   name = IO.gets("") |> to_string() |> String.trim()
   IO.puts " Thats a great name, #{name}!"
   introduction()
@@ -28,7 +30,7 @@ defmodule Adventure do
        _ ->
           IO.puts "Invalid choice."
           introduction()
-        end
+     end
 end
 
   def try_again() do
@@ -99,7 +101,7 @@ end
     end
 
     def make_torch() do
-      IO.puts " after a minute of walking, you find a dead tree with many branches that can be used to make a torch. You snap one off and start to contimplate whether you should wrap the top of it in your shirt or not... what do you choose?"
+      IO.puts " after a minute of walking, you find a dead tree with many branches that can be used to make a torch. You snap one off and start to contemplate whether you should wrap the top of it in your shirt or not... what do you choose?"
       torch = IO.gets("") |> to_string() |> String.trim() |> String.downcase()
 
        case torch do
@@ -108,11 +110,13 @@ end
           choose_sound()
           "no shirt" ->
             IO.puts " You decide to keep your shirt on, and light the dead branch. As it illuminates a little bit more of your surroundings, you see a wolf in front of you. Before you have a chance to react, it attacks you. Game over."
-          _ ->
+            try_again()
+            _ ->
             IO.puts "Invalid input. Please enter 'shirt' or 'no shirt'."
             make_torch()
        end
     end
+
     def choose_path() do
       IO.puts "You come to a stop at a stop sign, and see 2 paths you can take; the left path leads to a populated highway, and the right path leads to a silent dirt road. Where would you like to go? "
       path = IO.gets("") |> to_string() |> String.trim() |> String.downcase()
@@ -141,10 +145,17 @@ end
             "voices" ->
             IO.puts "You follow the sounds of voices until you stumble upon a village. Everyone talking stops and turns to you; They seem alarmed. You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming. As you turn to look at them, you are hit with a rock. Game over."
             thank_you()
+            _ ->
+              IO.puts "Invalid input. Please enter 'water' or 'voices'."
+              choose_sound()
         end
     end
 
     def thank_you() do
       IO.puts "Thank you for playing this small adventure game! <3"
+    end
+
+    def get_author do
+      @author
     end
 end

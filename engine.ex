@@ -34,7 +34,7 @@ defmodule Engine do
           chosen_message:
             "you pick up the flashlight, and watch the lighter sink into the grass. You try to turn it on as you breach the threshold of the Forest, but looks like the battery is dead.
         Without paying attention, you trip over a tree root and hit your head. Game over.",
-          next_state: :game_over
+          next_state: :try_again
         },
         %{
           choice: "lighter",
@@ -60,7 +60,7 @@ defmodule Engine do
           chosen_message:
             "You decide to keep your shirt on, and light the dead branch. As it illuminates a little bit more of your surroundings, you see a wolf in front of you.
       Before you have a chance to react, it attacks you. Game over.",
-          next_state: :game_over
+          next_state: :try_again
         }
       ]
     },
@@ -79,8 +79,27 @@ defmodule Engine do
           choice: "voices",
           chosen_message:
             "You follow the sounds of voices until you stumble upon a village. Everyone talking stops and turns to you; They seem alarmed.
-     You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming. As you turn to look at them, you are hit with a rock. Game over.",
+     You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming. 
+     As you turn to look at them, you are hit with a rock. Game over.",
+          next_state: :try_again
+        }
+      ]
+    },
+        :try_again => %{
+      message:
+        "would you like to try again?",
+      choices: [
+        %{
+          choice: "try again",
+          chosen_message:
+            "I wish you better luck",
           next_state: :thank_you
+        },
+        %{
+          choice: "quit",
+          chosen_message:
+            "The End is here",
+          next_state: :game_over
         }
       ]
     },
@@ -90,7 +109,7 @@ defmodule Engine do
     },
     :game_over => %{
       state: :game_over,
-      message: "Please try again. \n"
+      message: "Thank you for playing! \n"
     },
     :the_city => %{
       state: :the_city,
@@ -101,7 +120,7 @@ defmodule Engine do
           choice: "gps",
           chosen_message:
             "You pull out your phone while driving and immediately crash into a tree. Game over.",
-          next_state: :game_over
+          next_state: :try_again
         },
         %{
           choice: "drive",
@@ -127,7 +146,7 @@ defmodule Engine do
           chosen_message:
             "You walk into the store and notice that it's completely silent. You find the register to your left. When you walk up to it, you shout for assistance, but no one answers.
        Without you noticing, a poinsonous spider drops on your head and bites you. Game over.",
-          next_state: :game_over
+          next_state: :try_again
         }
       ]
     },
@@ -140,14 +159,15 @@ defmodule Engine do
           choice: "left",
           chosen_message:
             "you get on the highway and notice how beautiful and unique the buildings are. It is an amazing sight that seems to be enjoyed by everyone driving along side you.
-       After a while, you start to notice billboards that read 'Welcome to Paradise City'. You are among winners, and can now relax. Good Job!",
+       After a while, you start to notice billboards that read 'Welcome to Paradise City'.
+        You are among winners, and can now relax. Good Job!",
           next_state: :thank_you
         },
         %{
           choice: "right",
           chosen_message:
             "...ummm, you're supposed to be heading deeper into the City, not away from it... Game over!",
-          next_state: :thank_you
+          next_state: :try_again
         }
       ]
     },
@@ -165,9 +185,9 @@ defmodule Engine do
         %{
           choice: "sea",
           chosen_message:
-            "you chosen to drink multiple handfulls of sea water... now your stomach is cramping...a-a-a-and you s-s-start to throw up... Y-You cant see straight... Y-Y-Youre d-d-d-dehydrating rapidly
+            "you've chosen to drink multiple handfulls of sea water... now your stomach is cramping...a-a-a-and you s-s-start to throw up... Y-You cant see straight... Y-Y-Youre d-d-d-dehydrating rapidly
       ... G...G..Game...Overrr",
-          next_state: :game_over
+          next_state: :try_again
         }
       ]
     },
@@ -185,7 +205,7 @@ defmodule Engine do
           choice: "stick",
           chosen_message:
             "you pry a stick into one of the shallow holes of the coconut... You bend the stick too far and hit yourself... Game Over.",
-          next_state: :game_over
+          next_state: :try_again
         }
       ]
     },
@@ -207,7 +227,7 @@ defmodule Engine do
           chosen_message:
             "you walk into the dense woods. It seems the sun can barely penetrate through the trees, yet it is hot and humid. Soon bugs start buzzing around you as you walk further in.
       One of them bites you on the arm, and you immediately feel dizzy. Looks like it is poisonous, and you pass out. Game over...",
-          next_state: :game_over
+          next_state: :try_again
         }
       ]
     },
@@ -229,7 +249,7 @@ defmodule Engine do
           chosen_message:
             "you go around the village, not looking or speaking to anyone... You are determined to explore without help...
       You give one final glance at the village as it become distant and accidentally walk right into quick sand... Game over",
-          next_state: :game_over
+          next_state: :try_again
         }
       ]
     },
@@ -243,7 +263,7 @@ defmodule Engine do
           chosen_message:
             "you walk away from the villager and around the village. You dont need to complete some trials to go on an adventure.
       You give one final glance at the village as it become distant and accidentally walk right into quick sand... Game over",
-          next_state: :game_over
+          next_state: :try_again
         },
         %{
           choice: "trials",

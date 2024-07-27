@@ -34,7 +34,7 @@ defmodule Engine do
           chosen_message:
             "you pick up the flashlight, and watch the lighter sink into the grass. You try to turn it on as you breach the threshold of the Forest, but looks like the battery is dead.
         Without paying attention, you trip over a tree root and hit your head. Game over.",
-          next_state: :try_again
+          next_state: :game_over
         },
         %{
           choice: "lighter",
@@ -60,7 +60,7 @@ defmodule Engine do
           chosen_message:
             "You decide to keep your shirt on, and light the dead branch. As it illuminates a little bit more of your surroundings, you see a wolf in front of you.
       Before you have a chance to react, it attacks you. Game over.",
-          next_state: :try_again
+          next_state: :game_over
         }
       ]
     },
@@ -88,8 +88,8 @@ defmodule Engine do
       state: :thank_you,
       message: "Thank you for playing. <3 This game is brought to you by #{@author}.\n"
     },
-    :try_again => %{
-      state: :try_again,
+    :game_over => %{
+      state: :game_over,
       message: "Please try again. \n"
     },
     :the_city => %{
@@ -101,7 +101,7 @@ defmodule Engine do
           choice: "gps",
           chosen_message:
             "You pull out your phone while driving and immediately crash into a tree. Game over.",
-          next_state: :try_again
+          next_state: :game_over
         },
         %{
           choice: "drive",
@@ -127,7 +127,7 @@ defmodule Engine do
           chosen_message:
             "You walk into the store and notice that it's completely silent. You find the register to your left. When you walk up to it, you shout for assistance, but no one answers.
        Without you noticing, a poinsonous spider drops on your head and bites you. Game over.",
-          next_state: :try_again
+          next_state: :game_over
         }
       ]
     },
@@ -167,7 +167,7 @@ defmodule Engine do
           chosen_message:
             "you chosen to drink multiple handfulls of sea water... now your stomach is cramping...a-a-a-and you s-s-start to throw up... Y-You cant see straight... Y-Y-Youre d-d-d-dehydrating rapidly
       ... G...G..Game...Overrr",
-          next_state: :try_again
+          next_state: :game_over
         }
       ]
     },
@@ -185,7 +185,7 @@ defmodule Engine do
           choice: "stick",
           chosen_message:
             "you pry a stick into one of the shallow holes of the coconut... You bend the stick too far and hit yourself... Game Over.",
-          next_state: :try_again
+          next_state: :game_over
         }
       ]
     },
@@ -207,7 +207,7 @@ defmodule Engine do
           chosen_message:
             "you walk into the dense woods. It seems the sun can barely penetrate through the trees, yet it is hot and humid. Soon bugs start buzzing around you as you walk further in.
       One of them bites you on the arm, and you immediately feel dizzy. Looks like it is poisonous, and you pass out. Game over...",
-          next_state: :try_again
+          next_state: :game_over
         }
       ]
     },
@@ -229,7 +229,7 @@ defmodule Engine do
           chosen_message:
             "you go around the village, not looking or speaking to anyone... You are determined to explore without help...
       You give one final glance at the village as it become distant and accidentally walk right into quick sand... Game over",
-          next_state: :try_again
+          next_state: :game_over
         }
       ]
     },
@@ -243,7 +243,7 @@ defmodule Engine do
           chosen_message:
             "you walk away from the villager and around the village. You dont need to complete some trials to go on an adventure.
       You give one final glance at the village as it become distant and accidentally walk right into quick sand... Game over",
-          next_state: :try_again
+          next_state: :game_over
         },
         %{
           choice: "trials",
@@ -305,7 +305,7 @@ The villager takes you to a set of tall double doors at the other end of the vil
     current_state_data = @game_states[next_state]
     display_message(@game_states, next_state)
 
-   if next_state in [:try_again, :thank_you] do
+   if next_state in [:game_over, :thank_you] do
       continue_game(:the_introduction)
     else
       display_player_options(current_state_data)

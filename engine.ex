@@ -79,7 +79,7 @@ defmodule Engine do
           choice: "voices",
           chosen_message:
             "You follow the sounds of voices until you stumble upon a village. Everyone talking stops and turns to you; They seem alarmed.
-     You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming. 
+     You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming.
      As you turn to look at them, you are hit with a rock. Game over.",
           next_state: :try_again
         }
@@ -109,7 +109,7 @@ defmodule Engine do
     },
     :game_over => %{
       state: :game_over,
-      message: "Thank you for playing! \n"
+      message: " Thank you for playing\n"
     },
     :the_city => %{
       state: :the_city,
@@ -272,14 +272,43 @@ defmodule Engine do
 they say '...Okay weirdo... Follow me.'\n
 The villager takes you to a set of tall double doors at the other end of the village. You enter with trepidation and nobility in your heart.
   The doors close behind you and throw you in darkness. Slowly, fire lights within firebowls as you turn to this expansive space.
-  you see the trials infront on you, and confidents ignites within you...
-  After 3 hours of sweat, blood, and tears, you exit the trials. You collapse in front of a crowd that seemed to gather from the village.
-  The villager steps out of the croud and helps you up. The knowing look on their face shows you that they know exactly what you're thinking...
-  The trials were the best adventure you've ever had. You are among winners, and can now relax. Good Job!\n",
+  you see the trials infront on you, and confidence ignites within you...\n",
+          next_state: :trial_run
+        }
+      ]
+    },
+    :trial_run => %{
+      state: :trial_run,
+      message:
+        "You see two possible routes to get to the other side of the expanisve room in front of you. One path is made up of thick pedestals spaced out over a deep dark pit.
+        The other is a horizontal rock climbing wall with holes spiratically placed. I wonder what is in them? which path will you choose?\n ",
+      choices: [
+        %{
+          choice: "wall",
+          chosen_message:
+            "You decide to use your untapped skill of climbing and approach the wall to the left of you. You wipe the sweat from your brow and start to climb until you approach the first hole.
+            You wave your hand over the hole and a poison dart wizzes past... You decide to change climbing techniques and wiggle above or below the next holes that appear...
+            You made it to the end of the trial without accident. With heavy breath, you exit the room through another set of double doors.\n
+            You collapse in front of a crowd that seemed to gather from the village. The villager that led you to the trial steps out of the croud and helps you up.
+            The knowing look on their face shows you that they know exactly what you're thinking...
+            The trial was the best adventure you've ever had. You are among winners, and can now relax. Good Job!\n",
+          next_state: :thank_you
+        },
+        %{
+          choice: "pedestals",
+          chosen_message:
+            "You choose to use your untapped skill of jumping and approach the closet pedestal. It looks like, in order to reach it, you will have to get a running start.
+            You do so and land directly in the middle of the platform. Now you have even more confidence that you will finish this course with flying colors.
+            As you jump from pedestal to pedestal, you start to lose steam. You have 5 more pedestals to jump to, and now it feels like a daunting task.
+            You decide to take a moment to catch your breath... As seconds go by, your pedestal starts to lower... Now is the time to move quick and swiftly,
+            or else you will be lost forever...\n
+            After 3 hours of sweat, blood, and tears, you exit the trial. You collapse in front of a crowd that seemed to gather from the village.
+  The villager that led you to the trial steps out of the croud and helps you up. The knowing look on their face shows you that they know exactly what you're thinking...
+  The trial was the best adventure you've ever had. You are among winners, and can now relax. Good Job!\n",
           next_state: :thank_you
         }
       ]
-    }
+    },
   }
   def get_game_states do
     @game_states

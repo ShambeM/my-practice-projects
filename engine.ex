@@ -27,20 +27,44 @@ defmodule Engine do
     :the_forest => %{
       state: :the_forest,
       message:
-        "You walk up to the entrance of the Forest at the edge of your town. It is dark, and the air is thick. You look down, and see a flashlight and a lighter waiting to be chosen.",
+        "You walk up to the entrance of the Forest at the edge of your town. It is dark, and the air is thick with fog. You look down, and see a flashlight and a lighter waiting to be chosen.",
       choices: [
         %{
           choice: "flashlight",
           chosen_message:
-            "you pick up the flashlight, and watch the lighter sink into the grass. You try to turn it on as you breach the threshold of the Forest, but looks like the battery is dead.
-        Without paying attention, you trip over a tree root and hit your head. Game over.",
-          next_state: :try_again
+            "you pick up the flashlight, and watch the lighter sink magically into the grass. You try to turn it on, as you breach the threshold of the Forest, but looks like the battery is dead.
+            Now you are fully in the dark, clutching a dead flashlight, as you walk deeper into the Forest with careful steps. The Forest is quiet besides a few crunching leaves from your feet...
+            and from the left of you... It seems to be following close by... Maybe keeping an eye on you.\n",
+          next_state: :being_followed
         },
         %{
           choice: "lighter",
           chosen_message:
             "you pick up the lighter, and watch the flashlight sink into the grass. you flick it on, but still can't see much, but choose to carry on past the threshold of the Forest.",
           next_state: :make_torch
+        }
+      ]
+    },
+    :being_followed => %{
+      state: :being_followed,
+      message:
+        "You start to quicken your steps, and their steps quicken as well. Do you stop and call out to them, or do you run?",
+      choices: [
+        %{
+          choice: "stop",
+          chosen_message:
+            "You made the choice of stopping and shouting out 'Hello?!' into the direction of the sounds you heard. Slowly, the sounds get louder as they get closer to you...
+            From the fog, a wood nymph emergies, and approaches you with a smile on their face. They offer you their hand with graceful movements.
+            Once you put your hand in theirs, they guide you through the darkness and lead you to the other side of the forest... The forest opens up to a beautiful clearing filled with animals and other people.
+            They look so peaceful... You are among winners, and can relax now. Good job! ",
+          next_state: :thank_you
+        },
+        %{
+          choice: "run",
+          chosen_message:
+            "You decide to go into a full sprint, zipping through trees, until you run right into a tree. you fall on your back as a pounding headache blooms quickly...
+            You are too injured to continue. Game Over...",
+          next_state: :try_again
         }
       ]
     },

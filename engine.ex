@@ -1,5 +1,5 @@
 defmodule Engine do
- 
+  
   @title "The Adventure"
   @author "Maajidah Hall-Shambe"
 
@@ -30,7 +30,7 @@ defmodule Engine do
       state: :the_forest,
       message:
         "\n You walk up to the entrance of the Forest at the edge of your town. It is dark, and the air is thick with fog. You look down, and see a flashlight and a lighter waiting to be chosen.",
-      player_health: "<3 <3 <3 <3 <3 <3 <3",
+      player_health: "<3 <3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "flashlight",
@@ -52,7 +52,7 @@ defmodule Engine do
       state: :being_followed,
       message:
         "\n You start to quicken your steps, and their steps quicken as well. Do you stop and call out to them, or do you run?",
-      player_health: "<3 <3 <3 <3 <3 <3 <3",
+      player_health: "<3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "stop",
@@ -76,7 +76,7 @@ defmodule Engine do
       message:
         "\n After a minute of walking, you find a dead tree with many branches that can be used to make a torch.
   You snap one off and start to contimplate whether you should wrap the top of it in your shirt or not... what do you choose?",
-      player_health: "<3 <3 <3 <3 <3 <3 <3",
+      player_health: "<3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "shirt",
@@ -96,7 +96,7 @@ defmodule Engine do
     :choose_sound => %{
       message:
         "\n As your walking through dense bushes, you hear 2 distinct noises; one of rushing water, and one of voices. They are in opposite directions... Which do you choose to follow?",
-        player_health: "<3 <3 <3 <3 <3 <3 <3",
+        player_health: "<3 <3 <3 <3",
       choices: [
         %{
           choice: "water",
@@ -146,7 +146,7 @@ defmodule Engine do
       state: :the_city,
       message:
         "\n You drive into The City. You have driven for 2 hours and need to find a gas station.",
-        player_health: "<3 <3 <3 <3 <3 <3 <3",
+        player_health: "<3 <3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "gps",
@@ -166,7 +166,7 @@ defmodule Engine do
       state: :gas_station,
       message:
         "\n Would you like to pay with card at the pump, or go inside the slightly lit store?",
-        player_health: "<3 <3 <3 <3 <3 <3 <3",
+        player_health: "<3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "pump",
@@ -187,7 +187,7 @@ defmodule Engine do
       state: :choose_path,
       message:
         "\n You come to a stop at a stop sign, and see 2 paths you can take; the left path leads to a populated highway, and the right path leads to a silent dirt road. Where would you like to go?",
-        player_health: "<3 <3 <3 <3 <3 <3 <3",
+        player_health: "<3 <3 <3 <3",
       choices: [
         %{
           choice: "left",
@@ -210,7 +210,7 @@ defmodule Engine do
       message:
         "\n You use your boat to cross the seas to The Island. When you step out onto the sand, you take in a quiet view of trees with a large mountain in the background.
    Suddenly, a coconut falls from a tree you are standing next to, and you realise you are really thirsty... Do you want to drink from the coconut or the sea behind you?",
-   player_health: "<3 <3 <3 <3 <3 <3 <3",
+   player_health: "<3 <3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "coconut",
@@ -229,7 +229,7 @@ defmodule Engine do
     :open_it => %{
       state: :open_it,
       message: "\n A coconut cant be too hard to open, right?",
-      player_health: "<3 <3 <3 <3 <3 <3 <3",
+      player_health: "<3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "rock",
@@ -251,7 +251,7 @@ defmodule Engine do
         "\n You stare to the left and see the beach continues around a bend. you look right and see huge jagged rocks lining the beach.
   Looking ahead, you see the dense woods and a tall mountain ahead.
   Where do you want to go?",
-  player_health: "<3 <3 <3 <3 <3 <3 <3",
+  player_health: "<3 <3 <3 <3",
       choices: [
         %{
           choice: "left",
@@ -272,7 +272,7 @@ defmodule Engine do
       state: :to_speak,
       message:
         "\n I wonder what they would say to you, an outsider... Would they be kind? What do you do? ",
-        player_health: "<3 <3 <3 <3 <3 <3 <3",
+        player_health: "<3 <3 <3",
       choices: [
         %{
           choice: "speak",
@@ -295,7 +295,7 @@ defmodule Engine do
       state: :trials_decision,
       message:
         "\n A trial could mean the best adventure quest of your life... or immediate death... What do you choose?",
-        player_health: "<3 <3 <3 <3 <3 <3 <3",
+        player_health: "<3 <3",
       choices: [
         %{
           choice: "no thank you",
@@ -321,7 +321,7 @@ The villager takes you to a set of tall double doors at the other end of the vil
       message:
         "\n You see two possible routes to get to the other side of the expanisve room in front of you. One path is made up of thick pedestals spaced out over a deep dark pit.
         The other is a horizontal rock climbing wall with holes spiratically placed. I wonder what is in them? which path will you choose?\n ",
-        player_health: "<3 <3 <3 <3 <3 <3 <3",
+        player_health: "<3",
       choices: [
         %{
           choice: "wall",

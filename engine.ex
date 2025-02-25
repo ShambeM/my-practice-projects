@@ -1,5 +1,5 @@
 defmodule Engine do
-  
+
   @title "The Adventure"
   @author "Maajidah Hall-Shambe"
 
@@ -36,14 +36,14 @@ defmodule Engine do
           choice: "flashlight",
           chosen_message:
             "\n you pick up the flashlight, and watch the lighter sink magically into the grass. You try to turn it on, as you breach the threshold of the Forest, but looks like the battery is dead.
-            Now you are fully in the dark, clutching a dead flashlight, as you walk deeper into the Forest with careful steps. The Forest is quiet besides a few crunching leaves from your feet...
-            and from the left of you... It seems to be following close by... Maybe keeping an eye on you.\n",
+            Now you are fully in the dark, clutching a dead flashlight, as you walk deeper into the Forest with careful steps. The Forest is quiet besides a few crunchy leaves under your feet...
+            and foot steps from the left of you... It seems to be following close by... Maybe keeping an eye on you.\n",
           next_state: :being_followed
         },
         %{
           choice: "lighter",
           chosen_message:
-            "\n you pick up the lighter, and watch the flashlight sink into the grass. you flick it on, but still can't see much, but choose to carry on past the threshold of the Forest.",
+            "\n you pick up the lighter, and watch the flashlight sink into the grass. You flick it on, still unable to see much, but choose to carry on past the threshold of the Forest.",
           next_state: :make_torch
         }
       ]
@@ -66,7 +66,7 @@ defmodule Engine do
         %{
           choice: "run",
           chosen_message:
-            "\n You decide to go into a full sprint, zipping through trees, until you run right into a tree. you fall on your back as a pounding headache blooms quickly...
+            "\n You decide to go into a full sprint, zipping through trees, until you run right into one. You fall on your back as a pounding headache blooms quickly... The world is spinning in darkness, and moving seems futile...
             You are too injured to continue. Game Over...",
           next_state: :try_again
         }
@@ -108,7 +108,7 @@ defmodule Engine do
         %{
           choice: "voices",
           chosen_message:
-            "\n You follow the sounds of voices until you stumble upon a village. Everyone talking stops and turns to you; They seem alarmed.
+            "\n You follow the sounds of voices until you stumble upon a village. Everyone who is talking stops and turns to you; They seem alarmed.
      You start to raise your hands slowly to show you are not dangerous, and someone near starts screaming.
      As you turn to look at them, you are hit with a rock. Game over.",
           next_state: :try_again
@@ -145,19 +145,19 @@ defmodule Engine do
     :the_city => %{
       state: :the_city,
       message:
-        "\n You drive into The City. You have driven for 2 hours and need to find a gas station.",
+        "\n  It takes 2 hours of driving a single lane road to get to the outskirts of the city and gas is getting scarily low. You need to find a gas station. Do you use the gps to find one, or do you trust that one will be near soon?",
         player_health: "<3 <3 <3 <3 <3 <3",
       choices: [
         %{
           choice: "gps",
           chosen_message:
-            "\n You pull out your phone while driving and immediately crash into a tree. Game over.",
+            "\n You pull over, and use your gps to find the nearest gas station.",
           next_state: :try_again
         },
         %{
           choice: "drive",
           chosen_message:
-            "\n After 5 more mintutes of driving, you pull into a deserted gas station that doesnt look very inviting. You stop at a pump and notice that the gas prices are at least low.",
+            "\n After 5 more mintutes of driving, you pull into a deserted gas station that doesnt look very inviting. You stop at a pump and notice that the gas prices are at least lower than normal.",
           next_state: :gas_station
         }
       ]
@@ -240,7 +240,7 @@ defmodule Engine do
         %{
           choice: "stick",
           chosen_message:
-            "\n you pry a stick into one of the shallow holes of the coconut... You bend the stick too far and hit yourself... Game Over.",
+            "\n you pry a stick into one of the shallow holes of the coconut... You bend the stick too far and hit yourself... Now you are thirsty, and bleeding... Game Over.",
           next_state: :try_again
         }
       ]
@@ -279,14 +279,14 @@ defmodule Engine do
           chosen_message:
             "\n you walk up to a person sitting calmly by a tree...\n
                         you say 'Hi! I am here to explore... Do you know where I should go?'
-                        they say 'Hello stranger. We have not seen an outsider in many years... If you want to explore our Island, you must 1st complete the trials of fear. Would you like to?'\n",
+                        they say 'Hello stranger. We have not seen an outsider in many years... If you want to explore our Island, you must first complete the trials of fear. Would you like to?'\n",
           next_state: :trials_decision
         },
         %{
           choice: "avoid",
           chosen_message:
             "\n you go around the village, not looking or speaking to anyone... You are determined to explore without help...
-      You give one final glance at the village as it become distant and accidentally walk right into quick sand... Game over",
+      You give one final glance at the village as it become distant and accidentally walk right into quick sand. You try shouting for help as you struggle through sinking. No one hears you, and slowly you dissappear into the sand... Game over",
           next_state: :try_again
         }
       ]
@@ -301,7 +301,7 @@ defmodule Engine do
           choice: "no thank you",
           chosen_message:
             "\n you walk away from the villager and around the village. You dont need to complete some trials to go on an adventure.
-      You give one final glance at the village as it become distant and accidentally walk right into quick sand... Game over",
+      You give one final glance at the village as it become distant and accidentally walk right into quick sand. You try shouting for help as you struggle through sinking, and people start running to your aid, but are too far to make it in time as you slowly dissappear into the sand... Game over",
           next_state: :try_again
         },
         %{
